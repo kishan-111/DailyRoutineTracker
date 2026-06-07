@@ -1,0 +1,66 @@
+{
+  "days": [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
+  "weekdayRoutine": [
+    ["07:00", "07:30", "Wake up + Freshen up"],
+    ["07:30", "08:00", "LeetCode"],
+    ["08:00", "08:30", "ByteByteGo"],
+    ["08:30", "09:00", "Bath & Get Ready"],
+    ["09:00", "09:15", "Breakfast"],
+    ["09:15", "09:30", "Reach Office / Commute"],
+    ["10:30", "11:00", "DSM"],
+    ["11:15", "11:20", "Improve one naming decision"],
+    ["11:20", "13:15", "Office Work"],
+    ["13:15", "14:00", "Lunch"],
+    ["14:00", "17:30", "Office Work"],
+    ["17:35", "17:40", "Update JIRA"],
+    ["17:40", "18:00", "DSM Updates"],
+    ["18:00", "19:00", "Self Review"],
+    ["19:00", "19:15", "Learning Block"],
+    ["19:15", "19:30", "Talk/Reels"],
+    ["20:00", "21:00", "Cooking"],
+    ["21:00", "21:30", "Dinner"],
+    ["21:30", "23:30", "Talk/Reels / Free"],
+    ["23:30", "24:00", "Book Reading"]
+  ],
+  "learning": {
+    "1": "Explore one new Cursor feature; DDIA; A Philosophy of Software Design",
+    "2": "DDIA; Write one design doc",
+    "3": "DDIA; Read Google SRE book",
+    "4": "DDIA; Review OWASP Top 10 & check one API",
+    "5": "DDIA; Monitor metrics; Update .cursorrules"
+  },
+  "weekendBase": [
+    ["07:00", "07:30", "Wake up + Freshen up"],
+    ["08:00", "08:30", "Breakfast"],
+    ["08:00", "10:00", "LeetCode / Contest Practice"],
+    ["10:00", "11:00", "ByteByteGo"],
+    ["11:00", "12:00", "Bath"],
+    ["12:00", "13:00", "Cooking"],
+    ["13:00", "13:30", "Lunch"],
+    ["14:00", "15:00", "DDIA Reading"],
+    ["19:15", "19:30", "Talk/Reels"],
+    ["20:00", "21:00", "Cooking"],
+    ["21:00", "21:30", "Dinner"],
+    ["21:30", "23:30", "Talk/Reels / Free"],
+    ["23:30", "24:00", "Book Reading"]
+  ],
+  "weekendExtras": {
+    "0": [
+      ["16:00", "17:00", "Mock System Design Interview"],
+      ["18:00", "19:00", "Coding Contest"]
+    ],
+    "6": [
+      ["16:00", "17:00", "System Design from scratch"],
+      ["18:00", "19:00", "Watch MIT 6.824 lecture"]
+    ]
+  },
+  "weekendExtrasInsertIndex": 8
+}
