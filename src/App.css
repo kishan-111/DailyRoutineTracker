@@ -9,6 +9,15 @@
   text-align: center;
 }
 
+.header__owner {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
 .header h1 {
   margin: 0 0 0.35rem;
   font-size: 1.75rem;

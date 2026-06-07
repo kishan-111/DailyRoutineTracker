@@ -29,6 +29,7 @@ function AppShell({ children }) {
   return (
     <div className="app">
       <header className="header">
+        <p className="header__owner">Kishan Kumar</p>
         <h1>My Weekly Routine</h1>
         <p className="header__subtitle">Stay on track, one block at a time</p>
       </header>
