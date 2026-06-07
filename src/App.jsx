@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { fetchRoutineData } from "./api/routines.js";
-import { buildSchedule, getCurrentTask, isSlotActive } from "./utils/schedule.js";
+import {
+  buildSchedule,
+  getCurrentSlot,
+  getNextSlot,
+  isSlotActive,
+} from "./utils/schedule.js";
 import "./App.css";
 
 function formatDate(date) {
@@ -25,6 +30,58 @@ function ScheduleItem({ start, end, label, isActive }) {
   );
 }
 
+function TaskBanner({ variant, slot }) {
+  const isCurrent = variant === "current";
+
+  const content = isCurrent
+    ? slot
+      ? {
+          icon: "⚡",
+          headline: "You're on it!",
+          motto: "One block at a time — make this one count.",
+          task: slot.label,
+          meta: `${slot.start} – ${slot.end}`,
+        }
+      : {
+          icon: "☀️",
+          headline: "Breathing room",
+          motto: "Rest sharpens focus. Use this gap wisely.",
+          task: "No scheduled task right now",
+          meta: null,
+        }
+    : slot
+      ? {
+          icon: "🎯",
+          headline: "Up next",
+          motto: "Get ready — your next win is around the corner.",
+          task: slot.label,
+          meta: `Starts at ${slot.start}`,
+        }
+      : {
+          icon: "🌙",
+          headline: "Day complete!",
+          motto: "You showed up today. Rest well and come back stronger.",
+          task: "No more tasks on the schedule",
+          meta: null,
+        };
+
+  return (
+    <div className={`banner banner--${variant}`}>
+      <div className="banner__top">
+        <span className="banner__icon" aria-hidden="true">
+          {content.icon}
+        </span>
+        <div className="banner__intro">
+          <span className="banner__headline">{content.headline}</span>
+          <span className="banner__motto">{content.motto}</span>
+        </div>
+      </div>
+      <p className="banner__task">{content.task}</p>
+      {content.meta && <span className="banner__meta">{content.meta}</span>}
+    </div>
+  );
+}
+
 function AppShell({ children }) {
   return (
     <div className="app">
@@ -41,11 +98,17 @@ function AppShell({ children }) {
 export default function App() {
   const [routineData, setRoutineData] = useState(null);
   const [error, setError] = useState(null);
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
     fetchRoutineData()
       .then(setRoutineData)
       .catch((err) => setError(err.message));
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(id);
   }, []);
 
   if (error) {
@@ -70,16 +133,16 @@ export default function App() {
     );
   }
 
-  const now = new Date();
   const dayOfWeek = now.getDay();
   const schedule = buildSchedule(dayOfWeek, routineData);
-  const currentTask = getCurrentTask(schedule, now);
+  const currentSlot = getCurrentSlot(schedule, now);
+  const nextSlot = getNextSlot(schedule, now);
 
   return (
     <AppShell>
-      <div className="banner">
-        <span className="banner__label">Current task</span>
-        <span className="banner__task">{currentTask}</span>
+      <div className="banners">
+        <TaskBanner variant="current" slot={currentSlot} />
+        <TaskBanner variant="next" slot={nextSlot} />
       </div>
 
       <section className="schedule-section">

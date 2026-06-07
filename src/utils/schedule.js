@@ -29,12 +29,27 @@ export function isSlotActive(item, now = new Date()) {
   return curMin >= toMin(item[0]) && curMin < toMin(item[1]);
 }
 
-export function getCurrentTask(schedule, now = new Date()) {
+export function getCurrentSlot(schedule, now = new Date()) {
   const curMin = now.getHours() * 60 + now.getMinutes();
   for (const item of schedule) {
     if (curMin >= toMin(item[0]) && curMin < toMin(item[1])) {
-      return item[2];
+      return { start: item[0], end: item[1], label: item[2] };
     }
   }
-  return "No scheduled task right now";
+  return null;
+}
+
+export function getNextSlot(schedule, now = new Date()) {
+  const curMin = now.getHours() * 60 + now.getMinutes();
+  for (const item of schedule) {
+    if (curMin < toMin(item[0])) {
+      return { start: item[0], end: item[1], label: item[2] };
+    }
+  }
+  return null;
+}
+
+export function getCurrentTask(schedule, now = new Date()) {
+  const slot = getCurrentSlot(schedule, now);
+  return slot ? slot.label : "No scheduled task right now";
 }
