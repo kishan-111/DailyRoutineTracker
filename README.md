@@ -1,17 +1,43 @@
 # DailyRoutineTracker
 
-A React app that shows your daily routine and highlights the current task.
+A React app that shows your daily routine and highlights the current task. Email-based login is backed by a Go API and MongoDB.
 
-Routine data lives in `public/data/routines.json` and is loaded via `fetch` in `src/api/routines.js`. To switch to a backend later, change the URL in that file.
+Routine data lives in `public/data/routines.json` and is loaded via `fetch` in `src/api/routines.js`.
 
 ## Run locally
+
+### 1. Start MongoDB
+
+```bash
+docker compose up -d
+```
+
+### 2. Start the Go backend
+
+```bash
+cd backend
+cp .env.example .env
+go run ./cmd/server
+```
+
+The API runs at `http://localhost:8080`.
+
+### 3. Start the frontend
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173`).
+Open `http://localhost:5173`. Vite proxies `/api` requests to the backend.
+
+## Auth API
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/auth/register` | Register with email, password, optional name |
+| `POST` | `/api/auth/login` | Sign in with email and password |
+| `GET` | `/api/auth/me` | Get current user (requires `Authorization: Bearer <token>`) |
 
 ## Build for production
 
@@ -20,9 +46,17 @@ npm run build
 npm run preview
 ```
 
+For a deployed frontend, set `VITE_API_URL` to your backend URL before building:
+
+```bash
+VITE_API_URL=https://your-api.example.com npm run build
+```
+
 ## Deploy to GitHub Pages
 
 Live site: [https://kishan-111.github.io/DailyRoutineTracker/](https://kishan-111.github.io/DailyRoutineTracker/)
+
+GitHub Pages hosts the frontend only. Deploy the Go backend separately (e.g. Railway, Render, Fly.io) and set `VITE_API_URL` when building the frontend.
 
 1. Push your changes to GitHub.
 2. Deploy:
@@ -33,12 +67,10 @@ npm run deploy
 
 3. In the repo on GitHub: **Settings → Pages → Build and deployment → Branch:** select `gh-pages` and `/ (root)`, then save.
 
-The first deploy may take a minute before the site is available.
-
 ## Upcoming features
 
-### 1. Login
-User authentication so routines, progress, and history are tied to your account and synced across devices.
+### ~~1. Login~~ ✅
+Email/password authentication with JWT, Go backend, and MongoDB.
 
 ### 2. Make your own routine
 A guided flow to build a personalized schedule:

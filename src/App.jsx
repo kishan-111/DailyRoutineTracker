@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchRoutineData } from "./api/routines.js";
+import AuthPage from "./components/AuthPage.jsx";
+import UserBar from "./components/UserBar.jsx";
+import { useAuth } from "./context/AuthContext.jsx";
 import {
   buildSchedule,
   getCurrentSlot,
@@ -90,12 +93,13 @@ function AppShell({ children }) {
         <h1>My Weekly Routine</h1>
         <p className="header__subtitle">Stay on track, one block at a time</p>
       </header>
+      <UserBar />
       {children}
     </div>
   );
 }
 
-export default function App() {
+function RoutineDashboard() {
   const [routineData, setRoutineData] = useState(null);
   const [error, setError] = useState(null);
   const [now, setNow] = useState(() => new Date());
@@ -113,23 +117,19 @@ export default function App() {
 
   if (error) {
     return (
-      <AppShell>
-        <div className="state-message state-message--error">
-          <span className="state-message__icon">!</span>
-          <p>Failed to load routine: {error}</p>
-        </div>
-      </AppShell>
+      <div className="state-message state-message--error">
+        <span className="state-message__icon">!</span>
+        <p>Failed to load routine: {error}</p>
+      </div>
     );
   }
 
   if (!routineData) {
     return (
-      <AppShell>
-        <div className="banner banner--loading">
-          <div className="spinner" aria-hidden="true" />
-          <span>Loading your schedule…</span>
-        </div>
-      </AppShell>
+      <div className="banner banner--loading">
+        <div className="spinner" aria-hidden="true" />
+        <span>Loading your schedule…</span>
+      </div>
     );
   }
 
@@ -139,7 +139,7 @@ export default function App() {
   const nextSlot = getNextSlot(schedule, now);
 
   return (
-    <AppShell>
+    <>
       <div className="banners">
         <TaskBanner variant="current" slot={currentSlot} />
         <TaskBanner variant="next" slot={nextSlot} />
@@ -165,6 +165,31 @@ export default function App() {
           ))}
         </div>
       </section>
+    </>
+  );
+}
+
+export default function App() {
+  const { loading, isAuthenticated } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="auth-page">
+        <div className="banner banner--loading">
+          <div className="spinner" aria-hidden="true" />
+          <span>Loading…</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <AuthPage />;
+  }
+
+  return (
+    <AppShell>
+      <RoutineDashboard />
     </AppShell>
   );
 }
