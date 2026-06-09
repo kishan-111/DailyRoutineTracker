@@ -62,6 +62,37 @@ For a deployed frontend, set `VITE_API_URL` to your backend URL before building:
 VITE_API_URL=https://your-api.example.com npm run build
 ```
 
+## Deploy backend (Render + MongoDB Atlas)
+
+The repo includes a `render.yaml` blueprint for the Go API.
+
+### 1. Create MongoDB Atlas (free)
+
+1. Sign up at [mongodb.com/atlas](https://www.mongodb.com/atlas)
+2. Create a **free M0** cluster (region: Oregon / `us-west-2` pairs well with Render free tier)
+3. **Database Access** → create a database user and password
+4. **Network Access** → add `0.0.0.0/0` (allow Render to connect)
+5. **Connect** → copy the connection string, e.g.  
+   `mongodb+srv://user:pass@cluster0.xxxxx.mongodb.net/daily_routine_tracker?retryWrites=true&w=majority`
+
+### 2. Deploy API on Render
+
+1. Go to [dashboard.render.com](https://dashboard.render.com) → **New** → **Blueprint**
+2. Connect repo `kishan-111/DailyRoutineTracker` and branch `fb_simple_ui`
+3. When prompted, set **`MONGODB_URI`** to your Atlas connection string
+4. Click **Apply** and wait for deploy (~3–5 min)
+5. Copy your API URL, e.g. `https://daily-routine-api.onrender.com`
+
+Test: `curl https://daily-routine-api.onrender.com/api/health`
+
+### 3. Redeploy frontend with API URL
+
+```bash
+VITE_API_URL=https://daily-routine-api.onrender.com npm run deploy
+```
+
+Replace the URL with your actual Render service URL.
+
 ## Deploy to GitHub Pages
 
 Live site: [https://kishan-111.github.io/DailyRoutineTracker/](https://kishan-111.github.io/DailyRoutineTracker/)

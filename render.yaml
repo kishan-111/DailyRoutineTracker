@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: daily-routine-api
+    runtime: go
+    rootDir: backend
+    plan: free
+    buildCommand: go build -o server ./cmd/server
+    startCommand: ./server
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_DATABASE
+        value: daily_routine_tracker
+      - key: CORS_ORIGIN
+        value: https://kishan-111.github.io,http://localhost:5173
