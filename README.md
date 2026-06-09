@@ -81,14 +81,16 @@ The repo includes a `render.yaml` blueprint for the Go API.
 2. Connect repo `kishan-111/DailyRoutineTracker` and branch `fb_simple_ui`
 3. When prompted, set **`MONGODB_URI`** to your Atlas connection string
 4. Click **Apply** and wait for deploy (~3–5 min)
-5. Copy your API URL, e.g. `https://daily-routine-api.onrender.com`
+5. Copy your API URL, e.g. `https://daily-routine-api-tot5.onrender.com`
 
-Test: `curl https://daily-routine-api.onrender.com/api/health`
+Test: `curl https://daily-routine-api-tot5.onrender.com/api/health`
+
+**Dashboard:** [daily-routine-api on Render](https://dashboard.render.com/web/srv-d8k5ca4vikkc73e15i5g)
 
 ### 3. Redeploy frontend with API URL
 
 ```bash
-VITE_API_URL=https://daily-routine-api.onrender.com npm run deploy
+VITE_API_URL=https://daily-routine-api-tot5.onrender.com npm run deploy
 ```
 
 Replace the URL with your actual Render service URL.
