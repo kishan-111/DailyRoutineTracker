@@ -32,6 +32,17 @@ func ensureIndexes(ctx context.Context, db *mongo.Database) error {
 		Keys:    bson.D{{Key: "email", Value: 1}},
 		Options: options.Index().SetUnique(true),
 	})
+	if err != nil {
+		return err
+	}
+
+	_, err = db.Collection("daily_routines").Indexes().CreateOne(ctx, mongo.IndexModel{
+		Keys: bson.D{
+			{Key: "user_id", Value: 1},
+			{Key: "date", Value: 1},
+		},
+		Options: options.Index().SetUnique(true),
+	})
 	return err
 }
 

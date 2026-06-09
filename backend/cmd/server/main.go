@@ -31,14 +31,21 @@ func main() {
 	defer database.Disconnect(context.Background(), db)
 
 	userRepo := repository.NewUserRepository(db)
+	routineRepo := repository.NewRoutineRepository(db)
 	authService := service.NewAuthService(userRepo, cfg.JWTSecret)
+	routineService := service.NewRoutineService(routineRepo)
 	authHandler := handlers.NewAuthHandler(authService)
+	routineHandler := handlers.NewRoutineHandler(routineService)
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", healthHandler)
 	mux.HandleFunc("POST /api/auth/register", authHandler.Register)
 	mux.HandleFunc("POST /api/auth/login", authHandler.Login)
 	mux.Handle("GET /api/auth/me", middleware.Auth(authService)(http.HandlerFunc(authHandler.Me)))
+	mux.Handle("PUT /api/routine/today", middleware.Auth(authService)(http.HandlerFunc(routineHandler.SyncToday)))
+	mux.Handle("PATCH /api/routine/today/tasks", middleware.Auth(authService)(http.HandlerFunc(routineHandler.ToggleTask)))
+	mux.Handle("GET /api/routine/today", middleware.Auth(authService)(http.HandlerFunc(routineHandler.GetToday)))
+	mux.Handle("GET /api/routine/last", middleware.Auth(authService)(http.HandlerFunc(routineHandler.GetLastSaved)))
 
 	handler := withCORS(cfg.CORSOrigin, mux)
 
@@ -82,7 +89,7 @@ func withCORS(origin string, next http.Handler) http.Handler {
 			w.Header().Set("Access-Control-Allow-Origin", requestOrigin)
 			w.Header().Set("Vary", "Origin")
 			w.Header().Set("Access-Control-Allow-Headers", "Authorization, Content-Type")
-			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, OPTIONS")
 		}
 
 		if r.Method == http.MethodOptions {

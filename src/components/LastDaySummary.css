@@ -1,0 +1,96 @@
+.last-day {
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.15rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+
+.last-day__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.last-day__header h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.last-day__date {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.last-day__score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+}
+
+.last-day__score-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.last-day__score-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.last-day__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.last-day__item {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.45rem 0.55rem;
+  align-items: center;
+  padding: 0.45rem 0.5rem;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.last-day__item--done {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.last-day__check {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.last-day__time {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.last-day__label {
+  color: inherit;
+}
+
+.last-day__item--done .last-day__label {
+  text-decoration: line-through;
+  opacity: 0.85;
+}

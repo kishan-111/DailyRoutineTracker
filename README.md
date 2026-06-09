@@ -39,6 +39,16 @@ Open `http://localhost:5173`. Vite proxies `/api` requests to the backend.
 | `POST` | `/api/auth/login` | Sign in with email and password |
 | `GET` | `/api/auth/me` | Get current user (requires `Authorization: Bearer <token>`) |
 
+## Routine log API
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `PUT` | `/api/routine/today` | Sync today's schedule and load saved completion state |
+| `PATCH` | `/api/routine/today/tasks` | Mark a task done or undone |
+| `GET` | `/api/routine/last?before=YYYY-MM-DD` | Get the most recent saved routine before today |
+
+Yesterday's routine is automatically saved when you open the app on a new day.
+
 ## Build for production
 
 ```bash
@@ -80,8 +90,8 @@ A guided flow to build a personalized schedule:
 
 An LLM will use your inputs to generate a tailored daily routine.
 
-### 3. Mark task done & save last day's routine
-Check off tasks as you complete them and persist your end-of-day routine so you have a record of what you actually did.
+### ~~3. Mark task done & save last day's routine~~ ✅
+Check off tasks as you complete them. Yesterday's routine is auto-saved when you open the app on a new day.
 
 ### 4. Last day routine analysis
 Review and analyze your previous day's routine — what you completed, what slipped, and patterns worth noticing.
