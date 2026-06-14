@@ -1,0 +1,138 @@
+.feedback {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0ebe4;
+}
+
+/* ── Trigger button ── */
+.feedback__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d97b45 0%, #c05d7a 100%);
+  color: #fff;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 3px 10px rgba(192, 93, 122, 0.25);
+}
+
+.feedback__btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(192, 93, 122, 0.3);
+}
+
+.feedback__btn:active {
+  transform: translateY(0);
+}
+
+.feedback__btn-icon {
+  font-size: 0.9rem;
+}
+
+/* ── Loading ── */
+.feedback__loading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.83rem;
+  color: #7c6e5e;
+}
+
+.feedback__spinner {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #ede8e1;
+  border-top-color: #d97b45;
+  border-radius: 50%;
+  animation: feedback-spin 0.7s linear infinite;
+}
+
+@keyframes feedback-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error ── */
+.feedback__error {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+/* ── Result ── */
+.feedback__result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.feedback__block {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+}
+
+.feedback__block--motivation {
+  background: #fff8f4;
+  border: 1px solid #f5c49a;
+}
+
+.feedback__block--improvement {
+  background: #f3faf5;
+  border: 1px solid #b8dfc5;
+}
+
+.feedback__block-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  margin-top: 0.05rem;
+}
+
+.feedback__block-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #c2855a;
+}
+
+.feedback__block--improvement .feedback__block-label {
+  color: #4a7c5e;
+}
+
+.feedback__block-text {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #3d2f22;
+}
+
+/* ── Regenerate ── */
+.feedback__regenerate {
+  align-self: flex-end;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid #ede8e1;
+  border-radius: 999px;
+  background: #fff;
+  color: #7c6e5e;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.feedback__regenerate:hover {
+  border-color: #d97b45;
+  color: #c2855a;
+  background: #fff8f4;
+}

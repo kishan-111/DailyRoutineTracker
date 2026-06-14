@@ -5,16 +5,24 @@ export function formatLocalDate(date = new Date()) {
   return `${year}-${month}-${day}`;
 }
 
+/** Stable ID derived from a task's time window and title. */
 export function taskId(start, end, label) {
   return `${start}|${end}|${label}`;
 }
 
+/**
+ * Convert a schedule array of task objects into the flat task list
+ * that the rest of the app (and backend) works with.
+ *
+ * Input items: { start, end, title, description, tags, priority }
+ * Output items: { id, start, end, label, done }
+ */
 export function scheduleToTasks(schedule) {
-  return schedule.map(([start, end, label]) => ({
-    id: taskId(start, end, label),
-    start,
-    end,
-    label,
+  return schedule.map((item) => ({
+    id: taskId(item.start, item.end, item.title),
+    start: item.start,
+    end: item.end,
+    label: item.title,
     done: false,
   }));
 }

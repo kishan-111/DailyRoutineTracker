@@ -1,10 +1,10 @@
 .last-day {
   margin-bottom: 1.25rem;
   padding: 1.1rem 1.15rem;
-  border-radius: 14px;
+  border-radius: 18px;
   background: #fff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  border: 1px solid #ede8e1;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
 .last-day__header {
@@ -16,35 +16,35 @@
 }
 
 .last-day__header h3 {
-  margin: 0 0 0.2rem;
-  font-size: 1rem;
+  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #1e1a14;
 }
 
 .last-day__date {
   margin: 0;
-  font-size: 0.82rem;
-  color: #64748b;
+  font-size: 0.78rem;
+  color: #9e8f7e;
 }
 
 .last-day__score {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.1rem;
+  gap: 0.05rem;
 }
 
 .last-day__score-value {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #059669;
+  color: #6db88a;
 }
 
 .last-day__score-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: #64748b;
+  color: #9e8f7e;
 }
 
 .last-day__list {
@@ -53,44 +53,68 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  max-height: 180px;
+  gap: 0.3rem;
+  max-height: 200px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ede8e1 transparent;
+}
+
+.last-day__list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.last-day__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.last-day__list::-webkit-scrollbar-thumb {
+  background: #ede8e1;
+  border-radius: 999px;
 }
 
 .last-day__item {
   display: grid;
-  grid-template-columns: auto auto 1fr;
-  gap: 0.45rem 0.55rem;
+  grid-template-columns: 1.2rem auto 1fr;
+  gap: 0.4rem 0.5rem;
   align-items: center;
-  padding: 0.45rem 0.5rem;
-  border-radius: 8px;
-  background: #f8fafc;
-  font-size: 0.82rem;
-  color: #64748b;
+  padding: 0.4rem 0.55rem;
+  border-radius: 10px;
+  background: #faf8f5;
+  font-size: 0.8rem;
+  color: #7c6e5e;
+  transition: background 0.15s;
 }
 
 .last-day__item--done {
-  background: #ecfdf5;
-  color: #047857;
+  background: #f3faf5;
+  color: #4a7c5e;
 }
 
 .last-day__check {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .last-day__time {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  color: #9e8f7e;
+}
+
+.last-day__item--done .last-day__time {
+  color: #7aaa8a;
 }
 
 .last-day__label {
-  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .last-day__item--done .last-day__label {
   text-decoration: line-through;
-  opacity: 0.85;
+  opacity: 0.75;
 }

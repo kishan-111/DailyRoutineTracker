@@ -1,4 +1,6 @@
 {
+  "version": "1.0",
+  "timezone": "Asia/Kolkata",
   "days": [
     "Sunday",
     "Monday",
@@ -8,59 +10,571 @@
     "Friday",
     "Saturday"
   ],
+  "mission": [
+    "Become an exceptional Software Engineer",
+    "Prepare for top SDE interviews",
+    "Master System Design and Distributed Systems",
+    "Continuously improve engineering skills",
+    "Maintain health, family relationships and financial discipline"
+  ],
   "weekdayRoutine": [
-    ["07:00", "07:30", "Wake up + Freshen up"],
-    ["07:30", "08:00", "LeetCode"],
-    ["08:00", "08:30", "ByteByteGo"],
-    ["08:30", "09:00", "Bath & Get Ready"],
-    ["09:00", "09:15", "Breakfast"],
-    ["09:15", "09:30", "Reach Office / Commute"],
-    ["10:30", "11:00", "DSM"],
-    ["11:15", "11:20", "Improve one naming decision"],
-    ["11:20", "13:15", "Office Work"],
-    ["13:15", "14:00", "Lunch"],
-    ["14:00", "17:30", "Office Work"],
-    ["17:35", "17:40", "Update JIRA"],
-    ["17:40", "18:00", "DSM Updates"],
-    ["18:00", "19:00", "Self Review"],
-    ["19:00", "19:15", "Learning Block"],
-    ["19:15", "19:30", "Talk/Reels"],
-    ["20:00", "21:00", "Cooking"],
-    ["21:00", "21:30", "Dinner"],
-    ["21:30", "23:30", "Talk/Reels / Free"],
-    ["23:30", "24:00", "Book Reading"]
-  ],
-  "learning": {
-    "1": "Explore one new Cursor feature; DDIA; A Philosophy of Software Design",
-    "2": "DDIA; Write one design doc",
-    "3": "DDIA; Read Google SRE book",
-    "4": "DDIA; Review OWASP Top 10 & check one API",
-    "5": "DDIA; Monitor metrics; Update .cursorrules"
+    {
+      "start": "07:00",
+      "end": "07:30",
+      "title": "Wake up, Freshen up, Make bed & Arrange surroundings",
+      "description": "Wake up on time, drink water, freshen up, make your bed, organize your desk and nearby area, and avoid checking social media. Start the day with a clean environment.",
+      "tags": ["health", "discipline", "atomic-habits"],
+      "priority": "high"
+    },
+    {
+      "start": "07:30",
+      "end": "08:00",
+      "title": "LeetCode Practice",
+      "description": "Solve one LeetCode problem or continue an existing one. Focus on understanding the pattern rather than only getting an accepted solution. Record important learnings if applicable.",
+      "tags": ["career", "coding", "interview"],
+      "priority": "high"
+    },
+    {
+      "start": "08:00",
+      "end": "08:30",
+      "title": "ByteByteGo Learning",
+      "description": "Study one ByteByteGo topic related to system design. Write a three-sentence explanation in your own words to reinforce learning.",
+      "tags": ["career", "system-design", "learning"],
+      "priority": "high"
+    },
+    {
+      "start": "08:30",
+      "end": "09:00",
+      "title": "Bath & Get Ready",
+      "description": "Take a bath, dress for office, and ensure everything required for work is packed before leaving.",
+      "tags": ["personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "09:00",
+      "end": "09:15",
+      "title": "Breakfast",
+      "description": "Eat a healthy breakfast without unnecessary scrolling and prepare mentally for the workday.",
+      "tags": ["health"],
+      "priority": "high"
+    },
+    {
+      "start": "09:15",
+      "end": "09:30",
+      "title": "Reach Office / Commute",
+      "description": "Travel to the office. If possible, listen to a technical podcast or mentally plan the top priorities for the day.",
+      "tags": ["career", "planning"],
+      "priority": "medium"
+    },
+    {
+      "start": "10:30",
+      "end": "11:00",
+      "title": "Daily Stand-up Meeting",
+      "description": "Be prepared to explain what you completed yesterday, what you are working on today, and any blockers requiring assistance.",
+      "tags": ["career", "communication"],
+      "priority": "high"
+    },
+    {
+      "start": "11:15",
+      "end": "11:20",
+      "title": "Improve One Naming Decision",
+      "description": "Improve one variable, method, class, API, or database field name to make the codebase more readable and maintainable.",
+      "tags": ["career", "clean-code"],
+      "priority": "medium"
+    },
+    {
+      "start": "11:20",
+      "end": "13:15",
+      "title": "Development / Office Work",
+      "description": "Work on assigned development tasks while considering scalability, maintainability, and code quality. Ask yourself how the solution would behave under 10x traffic.",
+      "tags": ["career", "development"],
+      "priority": "high"
+    },
+    {
+      "start": "13:15",
+      "end": "14:00",
+      "title": "Lunch",
+      "description": "Take a proper lunch break, relax, and recharge before continuing work.",
+      "tags": ["health"],
+      "priority": "medium"
+    },
+    {
+      "start": "14:00",
+      "end": "17:30",
+      "title": "Development / Office Work",
+      "description": "Continue development work. Before asking anyone for help on a bug, spend at least 10 minutes forming your own hypothesis and investigating the issue.",
+      "tags": ["career", "development"],
+      "priority": "high"
+    },
+    {
+      "start": "17:30",
+      "end": "17:35",
+      "title": "Update JIRA",
+      "description": "Update ticket status, document progress accurately, and ensure work items reflect the current state.",
+      "tags": ["career", "organization"],
+      "priority": "high"
+    },
+    {
+      "start": "17:35",
+      "end": "17:40",
+      "title": "DSM Updates",
+      "description": "Write what was completed today and what is planned next so that tomorrow starts with clarity.",
+      "tags": ["career", "planning"],
+      "priority": "high"
+    },
+    {
+      "start": "17:40",
+      "end": "17:50",
+      "title": "Self Review & Postmortem",
+      "description": "Write today's key accomplishments, biggest challenge, improvements for tomorrow, and a two-line postmortem explaining what went wrong and what clue led to the solution.",
+      "tags": ["reflection", "growth"],
+      "priority": "high"
+    },
+    {
+      "start": "17:50",
+      "end": "17:55",
+      "title": "Reduce Friction for Tomorrow",
+      "description": "Prepare tomorrow's LeetCode problem, learning materials, notes, and top priorities so that tomorrow requires minimal effort to begin.",
+      "tags": ["atomic-habits", "planning"],
+      "priority": "high"
+    },
+    {
+      "start": "17:55",
+      "end": "18:00",
+      "title": "Prime Environment for Tomorrow",
+      "description": "Charge your laptop, clean your desk, keep books visible, organize project files, and arrange everything needed so the productive choice becomes the easiest choice.",
+      "tags": ["atomic-habits", "organization"],
+      "priority": "high"
+    },
+    {
+      "start": "18:00",
+      "end": "19:00",
+      "title": "Structured Learning",
+      "description": "Complete the scheduled learning activity for the day such as DDIA, Software Design, SRE, OWASP, or writing a design document according to the weekly plan.",
+      "tags": ["learning", "career"],
+      "priority": "high"
+    },
+    {
+      "start": "19:00",
+      "end": "19:15",
+      "title": "Job Applications",
+      "description": "Apply to 3-5 quality jobs on Naukri, LinkedIn, or company career pages. Respond to recruiters and save interesting opportunities for follow-up.",
+      "tags": ["career", "job-search"],
+      "priority": "high"
+    },
+    {
+      "start": "19:15",
+      "end": "20:00",
+      "title": "Relax / Talk to Her / Snacks",
+      "description": "Take a mental break by talking, relaxing, or having snacks. Avoid excessive screen time that does not help recovery.",
+      "tags": ["relationships", "mental-health"],
+      "priority": "medium"
+    },
+    {
+      "start": "20:00",
+      "end": "21:00",
+      "title": "Cooking",
+      "description": "Prepare dinner and, if convenient, prepare ingredients or food that will reduce effort for the next day.",
+      "tags": ["health", "personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "21:00",
+      "end": "21:15",
+      "title": "Talk to Parents",
+      "description": "Call your parents, ask about their health and day, share your updates, and check whether they need any support.",
+      "tags": ["family", "relationships"],
+      "priority": "high"
+    },
+    {
+      "start": "21:15",
+      "end": "21:45",
+      "title": "Dinner",
+      "description": "Eat dinner peacefully and avoid unnecessary distractions while eating.",
+      "tags": ["health"],
+      "priority": "high"
+    },
+    {
+      "start": "21:45",
+      "end": "23:30",
+      "title": "Free Time / Talk / Relax",
+      "description": "Spend quality time talking to loved ones, relaxing, enjoying hobbies, or completing light household work if necessary.",
+      "tags": ["relationships", "personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "23:30",
+      "end": "24:00",
+      "title": "Book Reading",
+      "description": "Read a technical or non-technical book before sleeping to build a long-term reading habit and continuous learning mindset.",
+      "tags": ["learning", "habit"],
+      "priority": "medium"
+    }
+  ],  "learning": {
+    "Monday": {
+      "title": "Cursor + A Philosophy of Software Design",
+      "description": "Explore one new Cursor feature that you have never used before during office hours. In the evening, read one chapter of A Philosophy of Software Design and note key learnings."
+    },
+    "Tuesday": {
+      "title": "DDIA + Design Document",
+      "description": "Read one chapter or section of Designing Data-Intensive Applications and write a design document for a current or upcoming feature including APIs, database design and trade-offs."
+    },
+    "Wednesday": {
+      "title": "DDIA + Google SRE Book",
+      "description": "Read one chapter or section of DDIA and one chapter of the Google SRE Book. Focus on reliability, monitoring and operational excellence."
+    },
+    "Thursday": {
+      "title": "DDIA + OWASP Review",
+      "description": "Read one DDIA section and study one OWASP Top 10 vulnerability. Evaluate one API from your project against that vulnerability."
+    },
+    "Friday": {
+      "title": "DDIA + Metrics + Resume Improvement",
+      "description": "Read one DDIA section, monitor one API or business flow metrics, update .cursorrules if required, and improve your Resume/LinkedIn/Naukri profile."
+    }
   },
-  "weekendBase": [
-    ["07:00", "07:30", "Wake up + Freshen up"],
-    ["08:00", "08:30", "Breakfast"],
-    ["08:00", "10:00", "LeetCode / Contest Practice"],
-    ["10:00", "11:00", "ByteByteGo"],
-    ["11:00", "12:00", "Bath"],
-    ["12:00", "13:00", "Cooking"],
-    ["13:00", "13:30", "Lunch"],
-    ["14:00", "15:00", "DDIA Reading"],
-    ["19:15", "19:30", "Talk/Reels"],
-    ["20:00", "21:00", "Cooking"],
-    ["21:00", "21:30", "Dinner"],
-    ["21:30", "23:30", "Talk/Reels / Free"],
-    ["23:30", "24:00", "Book Reading"]
-  ],
-  "weekendExtras": {
-    "0": [
-      ["16:00", "17:00", "Mock System Design Interview"],
-      ["18:00", "19:00", "Coding Contest"]
+
+  "weekendRoutine": [
+    {
+      "start": "07:00",
+      "end": "07:30",
+      "title": "Wake up, Freshen up, Make bed & Arrange surroundings",
+      "description": "Wake up on time, drink water, freshen up, make your bed, organize your room and workspace, and start the day with a clean environment.",
+      "tags": ["health", "discipline", "atomic-habits"],
+      "priority": "high"
+    },
+    {
+      "start": "07:30",
+      "end": "08:00",
+      "title": "Breakfast",
+      "description": "Eat a healthy breakfast and prepare mentally for deep learning sessions.",
+      "tags": ["health"],
+      "priority": "high"
+    },
+    {
+      "start": "08:00",
+      "end": "10:00",
+      "title": "LeetCode / Contest Practice",
+      "description": "Practice challenging problems or participate in contests. Focus on learning patterns and reviewing mistakes rather than simply solving problems.",
+      "tags": ["career", "coding", "interview"],
+      "priority": "high"
+    },
+    {
+      "start": "10:00",
+      "end": "11:00",
+      "title": "ByteByteGo Learning",
+      "description": "Study one system design topic and write a short summary in your own words.",
+      "tags": ["career", "system-design", "learning"],
+      "priority": "high"
+    },
+    {
+      "start": "11:00",
+      "end": "12:00",
+      "title": "Bath & Refresh",
+      "description": "Take a bath and refresh yourself before continuing the day's activities.",
+      "tags": ["personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "12:00",
+      "end": "12:30",
+      "title": "Buy Fruits & Weekly Grocery Check",
+      "description": "Purchase fruits and check whether groceries or household essentials need replenishment for the coming week.",
+      "tags": ["health", "personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "12:30",
+      "end": "13:30",
+      "title": "Cooking",
+      "description": "Prepare healthy meals and, if possible, reduce future effort by preparing ingredients for upcoming days.",
+      "tags": ["health", "personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "13:30",
+      "end": "14:00",
+      "title": "Lunch",
+      "description": "Enjoy lunch and take a short break before resuming learning activities.",
+      "tags": ["health"],
+      "priority": "medium"
+    },
+    {
+      "start": "14:00",
+      "end": "15:00",
+      "title": "DDIA Reading",
+      "description": "Read one chapter or section of Designing Data-Intensive Applications and note important concepts and trade-offs.",
+      "tags": ["career", "system-design", "learning"],
+      "priority": "high"
+    },
+    {
+      "start": "20:00",
+      "end": "21:00",
+      "title": "Cooking",
+      "description": "Prepare dinner and organize anything that can reduce effort during the upcoming week.",
+      "tags": ["health", "personal"],
+      "priority": "medium"
+    },
+    {
+      "start": "21:00",
+      "end": "21:15",
+      "title": "Talk to Parents",
+      "description": "Call your parents, ask about their health and day, share your updates, and check whether they need any support.",
+      "tags": ["family", "relationships"],
+      "priority": "high"
+    },
+    {
+      "start": "21:15",
+      "end": "21:45",
+      "title": "Dinner",
+      "description": "Eat dinner peacefully and avoid unnecessary distractions.",
+      "tags": ["health"],
+      "priority": "high"
+    },
+    {
+      "start": "21:45",
+      "end": "23:30",
+      "title": "Free Time / Relax",
+      "description": "Relax, spend time with loved ones, pursue hobbies, or complete light household work if required.",
+      "tags": ["mental-health", "relationships"],
+      "priority": "medium"
+    },
+    {
+      "start": "23:30",
+      "end": "24:00",
+      "title": "Book Reading",
+      "description": "Read a technical or non-technical book before sleeping to build a lifelong reading habit.",
+      "tags": ["learning", "habit"],
+      "priority": "medium"
+    }
+  ],  "weekendExtras": {
+    "Sunday": [
+      {
+        "start": "07:00",
+        "end": "07:05",
+        "title": "Measure Weight",
+        "description": "Measure your weight immediately after waking up and before breakfast. Record it in your tracker to monitor long-term health trends.",
+        "tags": ["health", "tracking"],
+        "priority": "medium"
+      },
+      {
+        "start": "15:00",
+        "end": "16:00",
+        "title": "Weekly Kitchen Cleaning",
+        "description": "Clean the kitchen counter, stove/induction, sink, utensils area, and organize frequently used items for the upcoming week.",
+        "tags": ["personal", "cleaning"],
+        "priority": "medium"
+      },
+      {
+        "start": "16:00",
+        "end": "17:00",
+        "title": "Mock System Design Interview",
+        "description": "Practice a complete system design interview by explaining your approach aloud or recording yourself. Review your communication and technical decisions afterward.",
+        "tags": ["career", "system-design", "interview"],
+        "priority": "high"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "title": "LeetCode / Codeforces Contest",
+        "description": "Participate seriously in a coding contest. After completion, review incorrect solutions and learn better approaches.",
+        "tags": ["career", "coding", "interview"],
+        "priority": "high"
+      },
+      {
+        "start": "19:00",
+        "end": "19:30",
+        "title": "Weekly Career Review",
+        "description": "Review jobs applied, recruiter responses, interview progress, resume improvements, and define next week's career objectives.",
+        "tags": ["career", "planning"],
+        "priority": "high"
+      },
+      {
+        "start": "19:30",
+        "end": "20:00",
+        "title": "Weekly Knowledge Review",
+        "description": "Review your LeetCode notes, DDIA learnings, System Design notes, and mistakes made during the week to strengthen retention.",
+        "tags": ["learning", "review"],
+        "priority": "high"
+      },
+      {
+        "start": "21:45",
+        "end": "22:30",
+        "title": "Wash Clothes",
+        "description": "Wash and organize clothes for the upcoming week. Prepare office clothes in advance to reduce Monday morning friction.",
+        "tags": ["personal", "organization"],
+        "priority": "medium"
+      },
+      {
+        "start": "22:30",
+        "end": "23:00",
+        "title": "Weekly Planning",
+        "description": "Plan the next week's top work goals, learning goals, personal goals, and important tasks so Monday starts with clarity.",
+        "tags": ["planning", "productivity"],
+        "priority": "high"
+      }
     ],
-    "6": [
-      ["16:00", "17:00", "System Design from scratch"],
-      ["18:00", "19:00", "Watch MIT 6.824 lecture"]
+    "Saturday": [
+      {
+        "start": "16:00",
+        "end": "17:00",
+        "title": "Design One System from Scratch",
+        "description": "Choose a real-world system and design its APIs, database, cache, messaging, scaling strategy, and failure handling. Compare your design with a reference solution.",
+        "tags": ["career", "system-design"],
+        "priority": "high"
+      },
+      {
+        "start": "17:00",
+        "end": "18:00",
+        "title": "Personal Project Development",
+        "description": "Build or improve your personal project by implementing one meaningful feature, fixing technical debt, or experimenting with a new technology.",
+        "tags": ["career", "project", "learning"],
+        "priority": "high"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "title": "MIT 6.824 Distributed Systems Lecture",
+        "description": "Watch one MIT 6.824 lecture attentively and write down the key concepts and practical lessons learned.",
+        "tags": ["career", "distributed-systems", "learning"],
+        "priority": "high"
+      }
     ]
   },
-  "weekendExtrasInsertIndex": 8
+
+  "weekendExtrasInsertIndex": 9,  "monthlyTasks": [
+    {
+      "dayOfMonth": 28,
+      "title": "Monthly Financial Planning",
+      "description": "Review your salary, expenses, savings, investments, SIPs, emergency fund, pending bills, and budget. Set financial goals and an investment plan for the next month.",
+      "tags": ["finance", "planning"],
+      "priority": "high"
+    },
+    {
+      "schedule": "First Sunday of Every Month",
+      "title": "Digital Cleanup",
+      "description": "Clean your Downloads folder, organize Desktop files, remove unnecessary screenshots, archive old notes, organize bookmarks, and clean unused browser tabs.",
+      "tags": ["organization", "productivity"],
+      "priority": "medium"
+    }
+  ],
+
+  "atomicHabits": [
+    {
+      "title": "Reduce Friction",
+      "description": "Before ending the day, prepare tomorrow's LeetCode problem, learning material, notes, clothes, and priorities so that starting tomorrow requires minimal effort.",
+      "tags": ["atomic-habits", "productivity"],
+      "priority": "high"
+    },
+    {
+      "title": "Prime Environment",
+      "description": "Arrange your workspace, charge your laptop, keep books visible, organize project files, and prepare everything needed so the desired behavior becomes the easiest behavior.",
+      "tags": ["atomic-habits", "environment"],
+      "priority": "high"
+    }
+  ],
+
+  "dailyPrinciples": [
+    {
+      "title": "Think for Scale",
+      "description": "For every feature ask: 'How would I design this if it needed to handle 10x traffic?'",
+      "tags": ["system-design"],
+      "priority": "high"
+    },
+    {
+      "title": "PR Self Review",
+      "description": "Review your own pull request as if you were the reviewer before requesting review from others.",
+      "tags": ["development", "quality"],
+      "priority": "high"
+    },
+    {
+      "title": "Explain What You Learn",
+      "description": "After learning any concept, write a three-sentence explanation in your own words to improve retention.",
+      "tags": ["learning"],
+      "priority": "high"
+    },
+    {
+      "title": "Bug Postmortem",
+      "description": "For every significant bug, write two lines: what was wrong and what clue led you to the solution.",
+      "tags": ["debugging", "learning"],
+      "priority": "medium"
+    },
+    {
+      "title": "Hypothesis Before Asking",
+      "description": "Before asking anyone for help on a bug, spend at least 10 minutes forming your own hypothesis and investigating.",
+      "tags": ["problem-solving"],
+      "priority": "high"
+    },
+    {
+      "title": "Failure Analysis",
+      "description": "Whenever designing or implementing something, ask: 'What happens if this fails? What's the fallback?'",
+      "tags": ["system-design", "reliability"],
+      "priority": "high"
+    },
+    {
+      "title": "Continuous Job Search",
+      "description": "Apply to 3-5 quality jobs every weekday and keep your Resume, LinkedIn, and Naukri profiles updated.",
+      "tags": ["career"],
+      "priority": "high"
+    },
+    {
+      "title": "Continuous Improvement",
+      "description": "Aim to become 1% better every day by improving code quality, communication, learning, or personal habits.",
+      "tags": ["growth"],
+      "priority": "high"
+    }
+  ],
+
+  "lifeRules": [
+    {
+      "title": "Health First",
+      "description": "Sleep on time, eat healthy food, monitor your weight weekly, and prioritize long-term health over short-term convenience.",
+      "tags": ["health"],
+      "priority": "high"
+    },
+    {
+      "title": "Family Comes First",
+      "description": "Talk to your parents every day and maintain meaningful relationships with your loved ones.",
+      "tags": ["family"],
+      "priority": "high"
+    },
+    {
+      "title": "Build Instead of Consume",
+      "description": "Whenever possible, spend your free time creating projects, writing, or learning instead of passive consumption.",
+      "tags": ["mindset"],
+      "priority": "high"
+    },
+    {
+      "title": "Document Your Knowledge",
+      "description": "Keep notes for algorithms, system design, debugging experiences, and engineering insights so future you benefits from present effort.",
+      "tags": ["learning", "documentation"],
+      "priority": "medium"
+    }
+  ],
+
+  "yearlyGoals": [
+    {
+      "title": "Crack a Top Product Company",
+      "description": "Become interview-ready for companies like Google by strengthening DSA, System Design, and Software Engineering skills.",
+      "tags": ["career"],
+      "priority": "high"
+    },
+    {
+      "title": "Build Strong Engineering Expertise",
+      "description": "Complete DDIA, Google SRE Book, A Philosophy of Software Design, MIT 6.824 lectures, and maintain practical projects.",
+      "tags": ["learning"],
+      "priority": "high"
+    },
+    {
+      "title": "Maintain Financial Discipline",
+      "description": "Track expenses monthly, increase savings and investments, and continuously improve financial planning.",
+      "tags": ["finance"],
+      "priority": "high"
+    },
+    {
+      "title": "Build a Portfolio of Projects",
+      "description": "Continuously improve personal projects so they demonstrate real engineering skills and strengthen your resume.",
+      "tags": ["projects", "career"],
+      "priority": "high"
+    }
+  ]
 }

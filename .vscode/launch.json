@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // ─── Frontend ────────────────────────────────────────────────────────────
+    {
+      "name": "Frontend: Vite Dev Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "Local:\\s+(https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "Frontend: Chrome (attach)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173/DailyRoutineTracker/",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "/@fs/*": "${workspaceFolder}/*"
+      }
+    },
+    // ─── Backend ─────────────────────────────────────────────────────────────
+    {
+      "name": "Backend: Go Server",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/backend/cmd/server/main.go",
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "env": {},
+      "args": []
+    },
+    // ─── Compound ────────────────────────────────────────────────────────────
+    {
+      "name": "Full Stack: Frontend + Backend",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "Local:\\s+(https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      },
+      "preLaunchTask": "Start Go Backend"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack (compound)",
+      "configurations": ["Frontend: Vite Dev Server", "Backend: Go Server"],
+      "stopAll": true
+    }
+  ]
+}

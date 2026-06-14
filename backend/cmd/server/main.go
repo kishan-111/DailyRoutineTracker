@@ -36,6 +36,7 @@ func main() {
 	routineService := service.NewRoutineService(routineRepo)
 	authHandler := handlers.NewAuthHandler(authService)
 	routineHandler := handlers.NewRoutineHandler(routineService)
+	feedbackHandler := handlers.NewFeedbackHandler(routineService, "../../ai_agent")
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", healthHandler)
@@ -46,6 +47,7 @@ func main() {
 	mux.Handle("PATCH /api/routine/today/tasks", middleware.Auth(authService)(http.HandlerFunc(routineHandler.ToggleTask)))
 	mux.Handle("GET /api/routine/today", middleware.Auth(authService)(http.HandlerFunc(routineHandler.GetToday)))
 	mux.Handle("GET /api/routine/last", middleware.Auth(authService)(http.HandlerFunc(routineHandler.GetLastSaved)))
+	mux.Handle("GET /api/feedback", middleware.Auth(authService)(http.HandlerFunc(feedbackHandler.GenerateFeedback)))
 
 	handler := withCORS(cfg.CORSOrigin, mux)
 

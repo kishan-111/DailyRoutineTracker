@@ -1,4 +1,5 @@
 import { countCompleted, formatSavedDate } from "../utils/tasks.js";
+import FeedbackCard from "./FeedbackCard.jsx";
 import "./LastDaySummary.css";
 
 export default function LastDaySummary({ routine }) {
@@ -38,6 +39,8 @@ export default function LastDaySummary({ routine }) {
           </li>
         ))}
       </ul>
+
+      <FeedbackCard date={routine.date} />
     </section>
   );
 }
